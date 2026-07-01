@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Sahel | Patrick ASSO Couture</title>
+    <link rel="icon" type="image/png" href="images/logo/favicon_pa.png">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo-container"><a href="index.html"><img src="images/logo/logo_patric_asso_transp.png" alt="Logo" class="logo"></a></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="createur.html">Patrick ASSO</a></li>
+                <li><a href="atelier.html">L'Atelier</a></li>
+                <li><a href="collections.html" style="color: var(--color-gold);">Collections</a></li>
+                <li><a href="atelier.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-secondary"><h1 class="page-title">Sahel</h1></section>
+        
+        <section class="container">
+            <h2 class="section-title">L'Âme du Désert</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images/collection/sahel/sahel_1.jpg" alt="Sahel 1"></div>
+                <div class="gallery-item"><img src="images/collection/sahel/sahel_2.jpg" alt="Sahel 2"></div>
+                <div class="gallery-item"><img src="images/collection/sahel/sahel_3.jpg" alt="Sahel 3"></div>
+                <div class="gallery-item"><img src="images/collection/sahel/sahel_4.jpg" alt="Sahel 4"></div>
+                <div class="gallery-item"><img src="images/collection/sahel/sahel_5.jpg" alt="Sahel 5"></div>
+                <div class="gallery-item"><img src="images/collection/sahel/sahel_6.jpg" alt="Sahel 6"></div>
+            </div>
+            <div style="padding: 4rem 0; text-align: center;">
+                <a href="collections.html" class="link-gold">Retour aux Collections</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+            <footer class="main-footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo/logo_patric_asso_transp.png" alt="Patrick ASSO" class="logo-small">
+                    <p>L'Atelier du luxe africain et mondial.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://www.facebook.com/profile.php?id=100050481160133" target="_blank"
+                            style="color: var(--color-gold); margin-right: 1.5rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em;">FACEBOOK</a>
+                        <a href="https://wa.me/22507450423" target="_blank"
+                            style="color: var(--color-gold); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em;">WHATSAPP</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>RUBRIQUES</h4>
+                    <ul>
+                        <li><a href="createur.html">Patrick ASSO</a></li>
+                        <li><a href="atelier.html">L'Atelier</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="atelier.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Cocody-Attoban,Abidjan, Côte d'Ivoire</p>
+                    <p>+(225) 07 07 45 04 23</p>
+                    <p>info@patrickasso.net</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Patrick ASSO Couture | Tous droits réservés | By nivaQuine
+            </div>
+        </div>
+    </footer>
+
+    <script src="gallery.js"></script>
+    <!-- Hamburger Menu Script -->
+    <script>
+    (function() {
+        var toggle = document.getElementById('menuToggle');
+        var nav = document.querySelector('.main-nav');
+        if (!toggle || !nav) return;
+
+        function closeNav() {
+            nav.classList.remove('nav-open');
+            toggle.classList.remove('is-active');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        // Hamburger toggle
+        toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var isOpen = nav.classList.toggle('nav-open');
+            toggle.classList.toggle('is-active', isOpen);
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        // Mobile dropdown toggle (click on dropbtn)
+        nav.querySelectorAll('.dropbtn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 900) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var parentLi = btn.closest('.dropdown');
+                    // Close other dropdowns
+                    nav.querySelectorAll('.dropdown.open').forEach(function(d) {
+                        if (d !== parentLi) d.classList.remove('open');
+                    });
+                    parentLi.classList.toggle('open');
+                }
+            });
+        });
+
+        // Close nav on regular link click (not dropbtn on mobile)
+        nav.querySelectorAll('a:not(.dropbtn)').forEach(function(link) {
+            link.addEventListener('click', closeNav);
+        });
+
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+                closeNav();
+                nav.querySelectorAll('.dropdown.open').forEach(function(d) {
+                    d.classList.remove('open');
+                });
+            }
+        });
+
+        // On resize back to desktop: reset state
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 900) {
+                closeNav();
+                nav.querySelectorAll('.dropdown.open').forEach(function(d) {
+                    d.classList.remove('open');
+                });
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
+
+
+
+

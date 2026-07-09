@@ -4,11 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L'Atelier & Sur Mesure | Patrick ASSO Couture</title>
+    <meta name="description" content="Visitez l'atelier Patrick ASSO Couture à Abidjan. Consultations privées, créations sur mesure et savoir-faire artisanal depuis 20 ans.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://patrick-asso-couture.vercel.app/atelier.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="L'Atelier & Sur Mesure | Patrick ASSO Couture">
+    <meta property="og:description" content="Consultations privées, créations sur mesure et savoir-faire artisanal à Abidjan.">
+    <meta property="og:image" content="https://patrick-asso-couture.vercel.app/images/logo/logo_asso.png">
+    <meta property="og:url" content="https://patrick-asso-couture.vercel.app/atelier.html">
+    <meta property="og:site_name" content="Patrick ASSO Couture">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="L'Atelier & Sur Mesure | Patrick ASSO Couture">
+    <meta name="twitter:description" content="Consultations privées, créations sur mesure et savoir-faire artisanal à Abidjan.">
+    <meta name="twitter:image" content="https://patrick-asso-couture.vercel.app/images/logo/logo_asso.png">
     <link rel="icon" type="image/png" href="images/logo/favicon_pa.png">
     <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Haute Couture Sur Mesure",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Patrick ASSO Couture"
+      },
+      "areaServed": "Abidjan, Côte d'Ivoire",
+      "description": "Consultations privées et créations sur mesure en haute couture africaine."
+    }
+    </script>
     <style>
         /* Specific Styles for Immersive Atelier Header */
         .atelier-hero {
@@ -37,19 +63,11 @@
 
         .atelier-hero-title {
             font-family: var(--font-serif);
-            font-size: clamp(3rem, 7vw, 5rem);
+            font-size: clamp(3.5rem, 10vw, 6rem);
             color: #fff;
             line-height: 1.1;
             margin-bottom: 1rem;
             text-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        }
-
-        .atelier-hero-subtitle {
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            letter-spacing: 0.4em;
-            color: var(--color-gold);
-            text-transform: uppercase;
         }
 
         /* Timeline & Styling Integration */
@@ -68,7 +86,7 @@
             transform: translate(-50%, -50%);
             width: 70vh;
             height: 70vh;
-            background-image: url('images/logo/logo_patric_asso_transp.png');
+            background-image: url('images/logo/logo_watermark.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -199,23 +217,65 @@
             .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; text-align: center; }
             .timeline-image img { height: 400px; margin-top: 3rem; }
         }
+
+        /* Atelier Showcase Section */
+        .atelier-showcase {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .atelier-showcase-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        .atelier-showcase-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            z-index: 1;
+        }
+
+        .atelier-showcase-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 6rem 5%;
+        }
     </style>
 </head>
 <body>
+
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <!-- Header Overlay Navigation -->
     <header class="main-header">
         <div class="logo-container">
             <a href="index.html">
-                <img src="images/logo/logo_patric_asso_transp.png" alt="Patrick ASSO Couture" class="logo">
+                <img src="images/logo/logo_asso.png" alt="Patrick ASSO Couture" class="logo">
             </a>
         </div>
         <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        <nav class="main-nav">
+        <nav class="main-nav" aria-label="Menu principal">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="createur.html">Patrick ASSO</a></li>
-                <li><a href="atelier.html" style="color: var(--color-gold);">L'Atelier</a></li>
+                <li><a href="atelier.html" class="active-nav" aria-current="page">L'Atelier</a></li>
                 <li class="dropdown">
                     <a href="collections.html" class="dropbtn">Collections</a>
                     <div class="dropdown-content">
@@ -226,12 +286,12 @@
                         <a href="collection-special.html">Edition Spéciale</a>
                     </div>
                 </li>
-                <li><a href="atelier.html#contact">Contact</a></li>
+                <li><a href="index.html#contact-middle">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Immersive B&W Header -->
         <section class="atelier-hero">
             <div class="hero-carousel-container">
@@ -245,14 +305,7 @@
             </div>
             <!-- Glitter overlay for a fairy touch -->
             <!-- Balanced White & Gold Glitter Overlay -->
-            <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:1; animation: glitterFall 25s linear infinite; background-image: 
-                radial-gradient(4px 4px at 20px 30px, var(--color-gold), rgba(0,0,0,0)), 
-                radial-gradient(3px 3px at 150px 150px, #fff, rgba(0,0,0,0)),
-                radial-gradient(4.5px 4.5px at 80px 200px, var(--color-gold), rgba(0,0,0,0)),
-                radial-gradient(2.5px 2.5px at 250px 50px, #fff, rgba(0,0,0,0)),
-                radial-gradient(3.5px 3.5px at 180px 300px, var(--color-gold), rgba(0,0,0,0)),
-                radial-gradient(4px 4px at 50px 100px, #fff, rgba(0,0,0,0)); 
-                background-size: 350px 350px; opacity: 0.6; pointer-events: none;"></div>
+            <div class="glitter-overlay-bg"></div>
         </section>
 
         <!-- Chronology of creation -->
@@ -268,7 +321,7 @@
                             <p class="body-text">Tout commence par un trait, une intention. Le Monolithe prend forme sur le papier, alliant rigueur structurelle et souffle artistique.</p>
                         </div>
                         <div class="timeline-image">
-                            <img src="images/atelier/conception_croquis.jpg" alt="Conception Croquis">
+                            <img loading="lazy" src="images/atelier/conception_croquis.jpg" alt="Conception Croquis">
                         </div>
                     </div>
 
@@ -280,7 +333,7 @@
                             <p class="body-text">Sélection des matières les plus nobles. Chaque tissu est choisi pour son histoire, son toucher et sa capacité à incarner la souveraineté.</p>
                         </div>
                         <div class="timeline-image">
-                            <img src="images/atelier/choix_tissu.jpg" alt="Choix des tissus">
+                            <img loading="lazy" src="images/atelier/choix_tissu.jpg" alt="Choix des tissus">
                         </div>
                     </div>
 
@@ -292,7 +345,7 @@
                             <p class="body-text">Le découpage demande une précision d'architecte. C'est ici que la silhouette commence à s'élever, défiant les lois de la pesanteur.</p>
                         </div>
                         <div class="timeline-image">
-                            <img src="images/atelier/decoupage.jpg" alt="Découpage">
+                            <img loading="lazy" src="images/atelier/decoupage.jpg" alt="Découpage">
                         </div>
                     </div>
 
@@ -304,7 +357,7 @@
                             <p class="body-text">Les mains d'or entrent en scène. Chaque point est une promesse de solidité et d'élégance, unissant les pièces en un bloc cohérent.</p>
                         </div>
                         <div class="timeline-image">
-                            <img src="images/atelier/montage.jpg" alt="Montage">
+                            <img loading="lazy" src="images/atelier/montage.jpg" alt="Montage">
                         </div>
                     </div>
 
@@ -316,7 +369,7 @@
                             <p class="body-text">L'essayage est le moment de vérité. Ajustement millimétré pour que le vêtement ne soit plus qu'un avec l'âme de celui qui le porte.</p>
                         </div>
                         <div class="timeline-image">
-                            <img src="images/atelier/essayage.jpg" alt="Essayage">
+                            <img loading="lazy" src="images/atelier/essayage.jpg" alt="Essayage">
                         </div>
                     </div>
 
@@ -324,37 +377,15 @@
             </div>
         </section>
 
-        <!-- Consultation Form -->
-        <section class="consult-section" id="contact">
-            <div class="container">
-                <div class="form-grid">
-                    <div class="form-info">
-                        <span class="hero-label">SUR MESURE</span>
-                        <h2>L'Expérience<br>Souveraine</h2>
-                        <p class="body-text">Prenez rendez-vous pour une consultation privée. Donnez vie à votre vision sous l'œil expert de Patrick ASSO.</p>
-                        <div style="margin-top: 3rem;">
-                            <p style="color: var(--color-gold); font-family: var(--font-sans); letter-spacing: 0.2rem;">WHATSAPP : +225 07 45 04 23</p>
-                            <p style="color: #fff; opacity: 0.6; font-family: var(--font-sans); margin-top: 0.5rem;">EMAIL : info@patrickasso.net</p>
-                        </div>
-                    </div>
-                    <form action="https://formspree.io/f/xzdkaaqk" method="POST" id="contact-form" class="contact-form">
-                        <div style="position: absolute; left: -9999px;" aria-hidden="true">
-                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-                        </div>
-                        <input type="text" name="name" placeholder="VOTRE NOM" required>
-                        <input type="email" name="email" placeholder="VOTRE EMAIL" required>
-                        <select name="category" required>
-                            <option value="" disabled selected>TYPE DE CRÉATION</option>
-                            <option value="wedding">Love & Love</option>
-                            <option value="soiree">Haute Couture Soirée</option>
-                            <option value="homme">Ligne Homme</option>
-                            <option value="autre">Consultation Privée</option>
-                        </select>
-                        <textarea name="message" placeholder="VOTRE PROJET EN QUELQUES MOTS" rows="5" required></textarea>
-                        <button type="submit" id="submit-btn" class="btn-submit">ENVOYER LA DEMANDE</button>
-                        <p id="form-status" style="display: none; margin-top: 1rem; color: var(--color-gold); font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.1rem; font-size: 0.8rem;"></p>
-                    </form>
-                </div>
+        <!-- Atelier Showcase -->
+        <section class="atelier-showcase" id="contact">
+            <div class="atelier-showcase-bg" style="background-image: url('images/atelier/atelier_mannequins.jpg');"></div>
+            <div class="atelier-showcase-overlay"></div>
+            <div class="container atelier-showcase-content">
+                <span class="hero-label">NOTRE SAVOIR-FAIRE</span>
+                <h2>L'Art de la Couture</h2>
+                <p class="body-text" style="max-width: 700px; margin: 0 auto;">Chaque pièce est le fruit d'un dialogue intime entre le créateur et la matière. Dans notre atelier d'Abidjan, les mains expertes de Patrick ASSO transforment la vision en héritage, point par point.</p>
+                <a href="index.html#contact-middle" class="btn-primary mt-3">Prendre Rendez-vous</a>
             </div>
         </section>
 
@@ -365,13 +396,15 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="images/logo/logo_patric_asso_transp.png" alt="Patrick ASSO" class="logo-small">
+                    <img loading="lazy" src="images/logo/logo_asso.png" alt="Patrick ASSO" class="logo-small">
                     <p>L'Atelier du luxe africain et mondial.</p>
-                    <div style="margin-top: 2rem;">
+                    <div class="mt-2">
                         <a href="https://www.facebook.com/profile.php?id=100050481160133" target="_blank" rel="noopener noreferrer"
-                            style="color: var(--color-gold); margin-right: 1.5rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em;">FACEBOOK</a>
+                            class="footer-social-link mr-15">FACEBOOK</a>
                         <a href="https://wa.me/22507450423" target="_blank" rel="noopener noreferrer"
-                            style="color: var(--color-gold); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em;">WHATSAPP</a>
+                            class="footer-social-link mr-15">WHATSAPP</a>
+                        <a href="https://www.instagram.com/patrickasso" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-link">INSTAGRAM</a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -380,7 +413,7 @@
                         <li><a href="createur.html">Patrick ASSO</a></li>
                         <li><a href="atelier.html">L'Atelier</a></li>
                         <li><a href="collections.html">Collections</a></li>
-                        <li><a href="atelier.html#contact">Contact</a></li>
+                        <li><a href="index.html#contact-middle">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -396,114 +429,9 @@
         </div>
     </footer>
 
-    <script>
-        var form = document.getElementById("contact-form");
-        
-        async function handleSubmit(event) {
-          event.preventDefault();
-          var status = document.getElementById("form-status");
-          var btn = document.getElementById("submit-btn");
-          var data = new FormData(event.target);
-          
-          btn.innerText = "ENVOI EN COURS...";
-          btn.disabled = true;
-
-          fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-          }).then(response => {
-            if (response.ok) {
-              status.innerText = "MERCI ! VOTRE DEMANDE A ÉTÉ ENVOYÉE AVEC SUCCÈS.";
-              status.style.display = "block";
-              btn.innerText = "ENVOYÉ";
-              form.reset()
-            } else {
-              response.json().then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                  status.innerText = data["errors"].map(error => error["message"]).join(", ");
-                } else {
-                  status.innerText = "OUP ! UNE ERREUR S'EST PRODUITE.";
-                }
-                status.style.display = "block";
-                btn.innerText = "RESSAYER";
-                btn.disabled = false;
-              })
-            }
-          }).catch(error => {
-            status.innerText = "OUP ! UNE ERREUR DE CONNEXION S'EST PRODUITE.";
-            status.style.display = "block";
-            btn.innerText = "RESSAYER";
-            btn.disabled = false;
-          });
-        }
-        form.addEventListener("submit", handleSubmit)
-    </script>
-    <!-- Hamburger Menu Script -->
-    <script>
-    (function() {
-        var toggle = document.getElementById('menuToggle');
-        var nav = document.querySelector('.main-nav');
-        if (!toggle || !nav) return;
-
-        function closeNav() {
-            nav.classList.remove('nav-open');
-            toggle.classList.remove('is-active');
-            toggle.setAttribute('aria-expanded', 'false');
-        }
-
-        // Hamburger toggle
-        toggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            var isOpen = nav.classList.toggle('nav-open');
-            toggle.classList.toggle('is-active', isOpen);
-            toggle.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        // Mobile dropdown toggle (click on dropbtn)
-        nav.querySelectorAll('.dropbtn').forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                if (window.innerWidth <= 900) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    var parentLi = btn.closest('.dropdown');
-                    // Close other dropdowns
-                    nav.querySelectorAll('.dropdown.open').forEach(function(d) {
-                        if (d !== parentLi) d.classList.remove('open');
-                    });
-                    parentLi.classList.toggle('open');
-                }
-            });
-        });
-
-        // Close nav on regular link click (not dropbtn on mobile)
-        nav.querySelectorAll('a:not(.dropbtn)').forEach(function(link) {
-            link.addEventListener('click', closeNav);
-        });
-
-        // Close on outside click
-        document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-                closeNav();
-                nav.querySelectorAll('.dropdown.open').forEach(function(d) {
-                    d.classList.remove('open');
-                });
-            }
-        });
-
-        // On resize back to desktop: reset state
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 900) {
-                closeNav();
-                nav.querySelectorAll('.dropdown.open').forEach(function(d) {
-                    d.classList.remove('open');
-                });
-            }
-        });
-    })();
-    </script>
+    <!-- Scripts externes -->
+    <script src="form-handler.js"></script>
+    <script src="nav.js"></script>
     <script src="hero-carousel.js"></script>
 </body>
 </html>

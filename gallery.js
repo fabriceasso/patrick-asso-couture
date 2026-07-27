@@ -1,54 +1,95 @@
 // Lightbox Logic for Patrick ASSO galleries
-const lightbox = document.createElement('div');
-lightbox.id = 'lightbox';
-lightbox.className = 'lightbox';
-lightbox.innerHTML = `
-    <div class="lightbox-close">Fermer [X]</div>
-    <button class="lightbox-btn lightbox-prev">&lt;</button>
-    <div class="lightbox-content">
-        <img src="" alt="Full view">
-    </div>
-    <button class="lightbox-btn lightbox-next">&gt;</button>
-`;
-document.body.appendChild(lightbox);
+(function () {
+    var lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-label', 'Visionneuse d\'images');
 
-const lightboxImg = lightbox.querySelector('img');
-const closeBtn = lightbox.querySelector('.lightbox-close');
-const prevBtn = lightbox.querySelector('.lightbox-prev');
-const nextBtn = lightbox.querySelector('.lightbox-next');
-const galleryItems = document.querySelectorAll('.gallery-item img');
+    var closeBtn = document.createElement('div');
+    closeBtn.className = 'lightbox-close';
+    closeBtn.textContent = 'Fermer [X]';
+    closeBtn.setAttribute('tabindex', '0');
 
-let currentIndex = 0;
+    var prevBtn = document.createElement('button');
+    prevBtn.className = 'lightbox-btn lightbox-prev';
+    prevBtn.textContent = '\u003C';
+    prevBtn.setAttribute('aria-label', 'Image précédente');
 
-galleryItems.forEach((img, index) => {
-    img.parentElement.addEventListener('click', () => {
-        currentIndex = index;
-        updateLightboxSource();
-        lightbox.classList.add('active');
+    var contentDiv = document.createElement('div');
+    contentDiv.className = 'lightbox-content';
+
+    var img = document.createElement('img');
+    img.src = '';
+    img.alt = 'Vue agrandie';
+    contentDiv.appendChild(img);
+
+    var nextBtn = document.createElement('button');
+    nextBtn.className = 'lightbox-btn lightbox-next';
+    nextBtn.textContent = '\u003E';
+    nextBtn.setAttribute('aria-label', 'Image suivante');
+
+    lightbox.appendChild(closeBtn);
+    lightbox.appendChild(prevBtn);
+    lightbox.appendChild(contentDiv);
+    lightbox.appendChild(nextBtn);
+    document.body.appendChild(lightbox);
+
+    var galleryItems = document.querySelectorAll('.gallery-item img');
+    var currentIndex = 0;
+
+    galleryItems.forEach(function (galleryImg, index) {
+        galleryImg.parentElement.addEventListener('click', function () {
+            currentIndex = index;
+            updateLightboxSource();
+            lightbox.classList.add('active');
+        });
     });
-});
 
-function updateLightboxSource() {
-    lightboxImg.src = galleryItems[currentIndex].src;
-}
+    function updateLightboxSource() {
+        img.src = galleryItems[currentIndex].src;
+        img.alt = galleryItems[currentIndex].alt || 'Vue agrandie';
+    }
 
-closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-});
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+    }
 
-prevBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    updateLightboxSource();
-});
+    closeBtn.addEventListener('click', closeLightbox);
 
-nextBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex + 1) % galleryItems.length;
-    updateLightboxSource();
-});
+    closeBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            closeLightbox();
+        }
+    });
 
-// Close on background click
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.classList.remove('active');
-});
+    prevBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        updateLightboxSource();
+    });
+
+    nextBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        updateLightboxSource();
+    });
+
+    lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateLightboxSource();
+        }
+        if (e.key === 'ArrowRight') {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            updateLightboxSource();
+        }
+    });
+})();

@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     var headerEl = document.getElementById('site-header');
     var footerEl = document.getElementById('site-footer');
-    var raw = window.location.pathname.split('/').pop() || 'index.html';
-    var page = raw.split('?')[0].split('#')[0];
+    var pathname = window.location.pathname.replace(/\/$/, '') || '/index';
+    var page = pathname.split('/').pop().split('?')[0].split('#')[0];
+    if (page === 'index') page = '/';
 
     function setActiveLink(doc) {
         doc.querySelectorAll('.main-nav a').forEach(function (a) {
-            var href = a.getAttribute('href').split('?')[0].split('#')[0];
-            if (href === page) {
+            var href = a.getAttribute('href').replace(/\.html$/, '').split('?')[0].split('#')[0];
+            if (href === page || href === '/' + page) {
                 a.classList.add('active-nav');
                 a.setAttribute('aria-current', 'page');
             }
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (headerEl) {
-        fetch('header.html')
+        fetch('/header.html')
             .then(function (r) {
                 if (!r.ok) throw new Error(r.status);
                 return r.text();
@@ -26,12 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (typeof initNav === 'function') initNav();
             })
             .catch(function () {
-                console.warn('Header non chargé. Vérifiez que le serveur local tourne (python -m http.server).');
+                console.warn('Header non chargé.');
             });
     }
 
     if (footerEl) {
-        fetch('footer.html')
+        fetch('/footer.html')
             .then(function (r) {
                 if (!r.ok) throw new Error(r.status);
                 return r.text();

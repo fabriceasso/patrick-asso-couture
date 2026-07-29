@@ -1,0 +1,137 @@
+/* Specific Styles for Immersive Collections Header */
+.collections-hero {
+    position: relative;
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.collections-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}
+
+.collections-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.collections-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-shadow: 0 10px 40px rgba(0, 0, 0, 1);
+}
+
+/* Moodboard Grid - Massive 77+ images mosaic */
+.moodboard-section {
+    padding: 8rem 0;
+    background-color: #000;
+}
+
+.moodboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+    gap: 15px;
+}
+
+.moodboard-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(242, 202, 80, 0.2);
+    transition: all 0.5s ease;
+}
+
+.moodboard-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease, filter 0.8s ease;
+    filter: grayscale(100%) brightness(0.7);
+}
+
+.portal-card img {
+    filter: grayscale(0) brightness(0.75) !important;
+}
+
+.moodboard-item:hover {
+    border-color: var(--color-gold);
+    z-index: 2;
+    box-shadow: 0 0 30px rgba(242, 202, 80, 0.3);
+}
+
+.moodboard-item:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0) brightness(1) !important;
+}
+
+/* Specialized Collection Portals */
+.portal-card {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+    border: 1px solid var(--color-gold) !important;
+}
+
+.portal-card .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background-color: rgba(10, 10, 10, 0.85);
+    border-top: 1px solid rgba(242, 202, 80, 0.3);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 3;
+}
+
+.portal-card h3 {
+    font-family: var(--font-serif);
+    color: var(--color-gold);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.portal-card p {
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* Span variations for masonry look */
+.span-v {
+    grid-row: span 2;
+}
+
+.span-h {
+    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .moodboard-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .portal-card {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}

@@ -1,0 +1,296 @@
+/* Specific Styles for Custom Creator Page */
+
+/* 1. Immersive B&W Hero Header */
+.creator-hero-banner {
+    position: relative;
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.creator-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+    z-index: 1;
+}
+
+.creator-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 5%;
+}
+
+.creator-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.creator-hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+}
+
+/* 2. Biography Editorial Layout */
+.bio-section {
+    padding: 8rem 0;
+    background-color: var(--color-midnight);
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.bio-text-block {
+    padding-right: 3rem;
+}
+
+.bio-image-wrapper {
+    position: relative;
+}
+
+.bio-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-gold);
+    box-shadow: 0 0 30px rgba(242, 202, 80, 0.15);
+    filter: sepia(0.3) contrast(1.1);
+}
+
+/* 3. The "Monolith" Highlight */
+.monolith-highlight {
+    margin: 4rem 0;
+    padding: 3rem;
+    border-left: 2px solid var(--color-gold);
+    background: linear-gradient(to right, rgba(242, 202, 80, 0.05), transparent);
+}
+
+.monolith-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+
+/* 4. Global Footprint (Runway Destinations) */
+.world-tour-section {
+    position: relative;
+    height: 75vh;
+    min-height: 500px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid rgba(242, 202, 80, 0.2);
+    border-bottom: 1px solid rgba(242, 202, 80, 0.2);
+}
+
+.world-tour-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 100%;
+    background-image: url('images/patrick_asso/scenes_du_monde.jpg');
+    background-size: cover;
+    background-position: left center;
+    filter: grayscale(40%) brightness(0.5);
+    animation: worldPan 30s ease-in-out infinite alternate;
+    transform-origin: center;
+    z-index: 0;
+}
+
+@keyframes worldPan {
+    0% {
+        background-position: left center;
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        background-position: right center;
+        transform: scale(1.05);
+    }
+}
+
+.world-tour-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.8) 100%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.world-tour-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 5%;
+}
+
+.destinations-marquee-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    overflow: hidden;
+    padding: 1.5rem 0;
+    margin-top: 2.5rem;
+    border-top: 1px solid rgba(242, 202, 80, 0.35);
+    border-bottom: 1px solid rgba(242, 202, 80, 0.35);
+    background: rgba(0, 0, 0, 0.45);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.destinations-marquee {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scrollDestinations 22s linear infinite;
+}
+
+.destinations-marquee:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollDestinations {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.dest-item {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    cursor: default;
+    letter-spacing: 0.12em;
+}
+
+.dest-item:hover {
+    color: var(--color-gold);
+    text-shadow: 0 0 25px rgba(242, 202, 80, 0.8);
+}
+
+.dest-separator {
+    color: var(--color-gold);
+    font-size: 1.4rem;
+    opacity: 0.55;
+    align-self: center;
+}
+
+/* 5. Big Parallax Quote */
+.massive-quote-section {
+    padding: 10rem 0;
+    text-align: center;
+    background-image: url('images/patrick_asso/patrick_asso_6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.massive-quote-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+}
+
+.massive-quote-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.quote-big {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--color-gold);
+    line-height: 1.3;
+    font-style: italic;
+}
+
+.quote-author {
+    margin-top: 3rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+/* 6. Distinctions Display */
+.awards-section {
+    padding: 8rem 0;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.award-card {
+    text-align: center;
+}
+
+.award-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid rgba(242, 202, 80, 0.3);
+    filter: grayscale(100%) brightness(0.8);
+    transition: all 0.5s ease;
+}
+
+.award-card:hover img {
+    border-color: var(--color-gold);
+    filter: grayscale(0) brightness(1);
+    box-shadow: 0 10px 30px rgba(242, 202, 80, 0.2);
+}
+
+@media (max-width: 992px) {
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    .bio-text-block {
+        padding-right: 0;
+    }
+}

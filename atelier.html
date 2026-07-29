@@ -14,6 +14,7 @@
     <meta property="og:image" content="https://patrick-asso-couture.vercel.app/images/atelier/atelier.jpg">
     <meta property="og:url" content="https://patrick-asso-couture.vercel.app/atelier.html">
     <meta property="og:site_name" content="Patrick ASSO Couture">
+    <meta property="og:locale" content="fr_CI">
     <!-- Twitter Card -->
     <meta name="twitter:site" content="@patrickasso">
     <meta name="twitter:card" content="summary_large_image">
@@ -23,6 +24,17 @@
     <link rel="icon" type="image/png" href="images/logo/favicon_pa.png">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="atelier.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://patrick-asso-couture.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "L'Atelier", "item": "https://patrick-asso-couture.vercel.app/atelier.html"}
+      ]
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,261 +48,12 @@
       "description": "Consultations privées et créations sur mesure en haute couture africaine."
     }
     </script>
-    <style>
-        /* Specific Styles for Immersive Atelier Header */
-        .atelier-hero {
-            position: relative;
-            height: 75vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .atelier-hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
-            z-index: 1;
-        }
-
-        .atelier-hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .atelier-hero-title {
-            font-family: var(--font-serif);
-            font-size: clamp(3.5rem, 10vw, 6rem);
-            color: #fff;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        }
-
-        /* Timeline & Styling Integration */
-        .timeline-section {
-            padding: 8rem 0;
-            background-color: #050505;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .timeline-section::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70vh;
-            height: 70vh;
-            background-image: url('images/logo/logo_watermark.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.1; /* Imperial Presence */
-            z-index: 0;
-            pointer-events: none;
-            filter: grayscale(100%);
-        }
-
-        .timeline-container {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10rem;
-            opacity: 1;
-            transition: all 0.5s ease;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            flex: 1;
-            padding: 0 5%;
-        }
-
-        .timeline-image {
-            flex: 1;
-            padding: 0 5%;
-        }
-
-        .timeline-image img {
-            width: 100%;
-            height: 650px;
-            object-fit: cover;
-            border: 1px solid var(--color-gold);
-            box-shadow: 0 0 30px rgba(242, 202, 80, 0.25);
-            transition: transform 0.8s ease;
-        }
-
-        .timeline-image img:hover {
-            transform: scale(1.05);
-        }
-
-        .step-number {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            color: var(--color-gold);
-            letter-spacing: 0.3rem;
-            margin-bottom: 1rem;
-            display: block;
-            text-transform: uppercase;
-        }
-
-        .step-title {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Forms & Consultation Branding */
-        .consult-section {
-            background-color: var(--color-midnight);
-            padding: 10rem 0;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            background: #080808;
-            border: 1px solid rgba(242, 202, 80, 0.1);
-            padding: 4rem;
-        }
-
-        .form-info h2 {
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--color-gold);
-        }
-
-        .contact-form input, .contact-form textarea, .contact-form select {
-            width: 100%;
-            padding: 1.25rem;
-            background: #111;
-            border: 1px solid #222;
-            color: #fff;
-            font-family: var(--font-sans);
-            margin-bottom: 1.5rem;
-            transition: border 0.3s ease;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--color-gold);
-        }
-
-        .btn-submit {
-            background: var(--color-gold);
-            color: #000;
-            border: none;
-            padding: 1.5rem 3rem;
-            font-family: var(--font-sans);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .btn-submit:hover {
-            background: #fff;
-            transform: translateY(-5px);
-        }
-
-        @media (max-width: 992px) {
-            .form-grid { grid-template-columns: 1fr; padding: 2rem; }
-            .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; text-align: center; }
-            .timeline-image img { height: 400px; margin-top: 3rem; }
-        }
-
-        /* Atelier Showcase Section */
-        .atelier-showcase {
-            position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .atelier-showcase-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.25;
-            z-index: 0;
-        }
-
-        .atelier-showcase-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
-            z-index: 1;
-        }
-
-        .atelier-showcase-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 6rem 5%;
-        }
-    </style>
 </head>
 <body>
 
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <!-- Header Overlay Navigation -->
-    <header class="main-header">
-        <div class="logo-container">
-            <a href="index.html">
-                <img src="images/logo/logo_asso.png" alt="Patrick ASSO Couture" class="logo">
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        <nav class="main-nav" aria-label="Menu principal">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="createur.html">Patrick ASSO</a></li>
-                <li><a href="atelier.html" class="active-nav" aria-current="page">L'Atelier</a></li>
-                <li class="dropdown">
-                    <a href="collections.html" class="dropbtn">Collections</a>
-                    <div class="dropdown-content">
-                        <a href="collection-love-love.html">Love & Love</a>
-                        <a href="collection-asian.html">Asian</a>
-                        <a href="collection-sahel.html">Sahel</a>
-                        <a href="collection-urban.html">Urban</a>
-                        <a href="collection-special.html">Edition Spéciale</a>
-                    </div>
-                </li>
-                <li><a href="index.html#contact-middle">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="site-header"></div>
 
     <main id="main-content">
         <!-- Immersive B&W Header -->
@@ -392,45 +155,10 @@
 
     </main>
 
-    <!-- Footer -->
-            <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img loading="lazy" src="images/logo/logo_asso.png" alt="Patrick ASSO" class="logo-small">
-                    <p>L'Atelier du luxe africain et mondial.</p>
-                    <div class="mt-2">
-                        <a href="https://www.facebook.com/profile.php?id=100050481160133" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link mr-15">FACEBOOK</a>
-                        <a href="https://wa.me/22507450423" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link mr-15">WHATSAPP</a>
-                        <a href="https://www.instagram.com/patrickasso" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link">INSTAGRAM</a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>RUBRIQUES</h4>
-                    <ul>
-                        <li><a href="createur.html">Patrick ASSO</a></li>
-                        <li><a href="atelier.html">L'Atelier</a></li>
-                        <li><a href="collections.html">Collections</a></li>
-                        <li><a href="index.html#contact-middle">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p>Cocody-Attoban,Abidjan, Côte d'Ivoire</p>
-                    <p>+(225) 07 07 45 04 23</p>
-                    <p>info@patrickasso.net</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 Patrick ASSO Couture | Tous droits réservés | By nivaQuine
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
     <!-- Scripts externes -->
+    <script src="components.js"></script>
     <script src="form-handler.js"></script>
     <script src="nav.js"></script>
     <script src="hero-carousel.js"></script>

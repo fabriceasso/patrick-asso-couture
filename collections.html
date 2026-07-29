@@ -15,6 +15,7 @@
     <meta property="og:image" content="https://patrick-asso-couture.vercel.app/images/collection/wedding_glams/wedding_7.jpg">
     <meta property="og:url" content="https://patrick-asso-couture.vercel.app/collections.html">
     <meta property="og:site_name" content="Patrick ASSO Couture">
+    <meta property="og:locale" content="fr_CI">
     <!-- Twitter Card -->
     <meta name="twitter:site" content="@patrickasso">
     <meta name="twitter:card" content="summary_large_image">
@@ -24,6 +25,17 @@
     <link rel="icon" type="image/png" href="images/logo/favicon_pa.png">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="collections.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://patrick-asso-couture.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Collections", "item": "https://patrick-asso-couture.vercel.app/collections.html"}
+      ]
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -40,187 +52,13 @@
       ]
     }
     </script>
-    <style>
-        /* Specific Styles for Immersive Collections Header */
-        .collections-hero {
-            position: relative;
-            height: 75vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .collections-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
-            z-index: 1;
-        }
-
-        .collections-hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .collections-hero-title {
-            font-family: var(--font-serif);
-            font-size: clamp(3.5rem, 10vw, 6rem);
-            color: #fff;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            text-shadow: 0 10px 40px rgba(0, 0, 0, 1);
-        }
-
-        /* Moodboard Grid - Massive 77+ images mosaic */
-        .moodboard-section {
-            padding: 8rem 0;
-            background-color: #000;
-        }
-
-        .moodboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            grid-auto-rows: 250px;
-            grid-auto-flow: dense;
-            gap: 15px;
-        }
-
-        .moodboard-item {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(242, 202, 80, 0.2);
-            transition: all 0.5s ease;
-        }
-
-        .moodboard-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1s ease, filter 0.8s ease;
-            /* Integrated filter transition */
-            filter: grayscale(100%) brightness(0.7);
-            /* Default B&W */
-        }
-
-        .portal-card img {
-            filter: grayscale(0) brightness(0.75) !important;
-            /* Portals always in color */
-        }
-
-        .moodboard-item:hover {
-            border-color: var(--color-gold);
-            z-index: 2;
-            box-shadow: 0 0 30px rgba(242, 202, 80, 0.3);
-        }
-
-        .moodboard-item:hover img {
-            transform: scale(1.1);
-            filter: grayscale(0) brightness(1) !important;
-            /* Transition to color on hover */
-        }
-
-        /* Specialized Collection Portals */
-        .portal-card {
-            grid-column: span 2;
-            grid-row: span 2;
-            display: flex;
-            align-items: flex-end;
-            text-decoration: none;
-            border: 1px solid var(--color-gold) !important;
-        }
-
-        .portal-card .info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem 2rem;
-            background-color: rgba(10, 10, 10, 0.85);
-            /* Dark solid band */
-            border-top: 1px solid rgba(242, 202, 80, 0.3);
-            /* Subtle gold accent */
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            /* Modern luxury feel */
-            z-index: 3;
-        }
-
-        .portal-card h3 {
-            font-family: var(--font-serif);
-            color: var(--color-gold);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .portal-card p {
-            color: #fff;
-            font-family: var(--font-sans);
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        /* Span variations for masonry look */
-        .span-v {
-            grid-row: span 2;
-        }
-
-        .span-h {
-            grid-column: span 2;
-        }
-
-        @media (max-width: 768px) {
-            .moodboard-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .portal-card {
-                grid-column: span 2;
-                grid-row: span 2;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <!-- Header -->
-    <header class="main-header">
-        <div class="logo-container">
-            <a href="index.html">
-                <img src="images/logo/logo_asso.png" alt="Patrick ASSO Couture" class="logo">
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu"
-            aria-expanded="false"><span></span><span></span><span></span></button>
-        <nav class="main-nav" aria-label="Menu principal">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="createur.html">Patrick ASSO</a></li>
-                <li><a href="atelier.html">L'Atelier</a></li>
-                <li class="dropdown">
-                    <a href="collections.html" class="dropbtn active-nav" aria-current="page">Collections</a>
-                    <div class="dropdown-content">
-                        <a href="collection-love-love.html">Love & Love</a>
-                        <a href="collection-asian.html">Asian</a>
-                        <a href="collection-sahel.html">Sahel</a>
-                        <a href="collection-urban.html">Urban</a>
-                        <a href="collection-special.html">Edition Spéciale</a>
-                    </div>
-                </li>
-                <li><a href="index.html#contact-middle">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="site-header"></div>
 
     <main id="main-content">
         <!-- Immersive B&W Header -->
@@ -337,44 +175,9 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img loading="lazy" src="images/logo/logo_asso.png" alt="Patrick ASSO" class="logo-small">
-                    <p>L'Atelier du luxe africain et mondial.</p>
-                    <div class="mt-2">
-                        <a href="https://www.facebook.com/profile.php?id=100050481160133" target="_blank"
-                            rel="noopener noreferrer" class="footer-social-link mr-15">FACEBOOK</a>
-                        <a href="https://wa.me/22507450423" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link mr-15">WHATSAPP</a>
-                        <a href="https://www.instagram.com/patrickasso" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link">INSTAGRAM</a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>RUBRIQUES</h4>
-                    <ul>
-                        <li><a href="createur.html">Patrick ASSO</a></li>
-                        <li><a href="atelier.html">L'Atelier</a></li>
-                        <li><a href="collections.html">Collections</a></li>
-                        <li><a href="index.html#contact-middle">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p>Cocody-Attoban,Abidjan, Côte d'Ivoire</p>
-                    <p>+(225) 07 07 45 04 23</p>
-                    <p>info@patrickasso.net</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 Patrick ASSO Couture | Tous droits réservés | By nivaQuine
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
+    <script src="components.js"></script>
     <script src="nav.js"></script>
     <script src="hero-carousel.js"></script>
 </body>

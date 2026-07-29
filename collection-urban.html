@@ -16,6 +16,7 @@
     <meta property="og:image" content="https://patrick-asso-couture.vercel.app/images/collection/urban/urban_1.jpg">
     <meta property="og:url" content="https://patrick-asso-couture.vercel.app/collection-urban.html">
     <meta property="og:site_name" content="Patrick ASSO Couture">
+    <meta property="og:locale" content="fr_CI">
     <meta name="twitter:site" content="@patrickasso">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Collection Urban | Patrick ASSO Couture">
@@ -25,6 +26,17 @@
     <link rel="icon" type="image/png" href="images/logo/favicon_pa.png">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="fonts/fonts.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://patrick-asso-couture.vercel.app/"},
+        {"@type": "ListItem", "position": 2, "name": "Collections", "item": "https://patrick-asso-couture.vercel.app/collections.html"},
+        {"@type": "ListItem", "position": 3, "name": "Urban", "item": "https://patrick-asso-couture.vercel.app/collection-urban.html"}
+      ]
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -47,22 +59,7 @@
 
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <header class="main-header">
-        <div class="logo-container"><a href="index.html"><img src="images/logo/logo_asso.png" alt="Logo"
-                    class="logo"></a></div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu"
-            aria-expanded="false"><span></span><span></span><span></span></button>
-        <nav class="main-nav" aria-label="Menu principal">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="createur.html">Patrick ASSO</a></li>
-                <li><a href="atelier.html">L'Atelier</a></li>
-                <li><a href="collections.html" class="dropbtn active-nav" aria-current="page">Collections</a>
-                </li>
-                <li><a href="index.html#contact-middle">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="site-header"></div>
 
     <main id="main-content">
         <section class="hero-secondary">
@@ -164,44 +161,9 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img loading="lazy" src="images/logo/logo_asso.png" alt="Patrick ASSO" class="logo-small">
-                    <p>L'Atelier du luxe africain et mondial.</p>
-                    <div class="mt-2">
-                        <a href="https://www.facebook.com/profile.php?id=100050481160133" target="_blank"
-                            rel="noopener noreferrer" class="footer-social-link mr-15">FACEBOOK</a>
-                        <a href="https://wa.me/22507450423" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link mr-15">WHATSAPP</a>
-                        <a href="https://www.instagram.com/patrickasso" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link">INSTAGRAM</a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>RUBRIQUES</h4>
-                    <ul>
-                        <li><a href="createur.html">Patrick ASSO</a></li>
-                        <li><a href="atelier.html">L'Atelier</a></li>
-                        <li><a href="collections.html">Collections</a></li>
-                        <li><a href="index.html#contact-middle">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p>Cocody-Attoban,Abidjan, Côte d'Ivoire</p>
-                    <p>+(225) 07 07 45 04 23</p>
-                    <p>info@patrickasso.net</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 Patrick ASSO Couture | Tous droits réservés | By nivaQuine
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
+    <script src="components.js"></script>
     <script src="gallery.js"></script>
     <script src="nav.js"></script>
 </body>

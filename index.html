@@ -17,6 +17,7 @@
     <meta property="og:image" content="https://patrick-asso-couture.vercel.app/images/logo/logo_asso.png">
     <meta property="og:url" content="https://patrick-asso-couture.vercel.app/">
     <meta property="og:site_name" content="Patrick ASSO Couture">
+    <meta property="og:locale" content="fr_CI">
     <!-- Twitter Card -->
     <meta name="twitter:site" content="@patrickasso">
     <meta name="twitter:card" content="summary_large_image">
@@ -33,12 +34,7 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Patrick ASSO Couture",
-      "url": "https://patrick-asso-couture.vercel.app",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://patrick-asso-couture.vercel.app/collections.html?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "url": "https://patrick-asso-couture.vercel.app"
     }
     </script>
     <script type="application/ld+json">
@@ -55,8 +51,19 @@
         "addressLocality": "Abidjan",
         "addressCountry": "CI"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 5.36,
+        "longitude": -4.01
+      },
       "telephone": "+2250707450423",
-      "email": "info@patrickasso.net"
+      "email": "info@patrickasso.net",
+      "priceRange": "$$$",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100050481160133",
+        "https://www.instagram.com/patrickasso"
+      ]
     }
     </script>
 </head>
@@ -65,30 +72,7 @@
 
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <header class="main-header">
-        <div class="logo-container"><a href="index.html"><img src="images/logo/logo_asso.png" alt="Logo"
-                    class="logo"></a></div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu"
-            aria-expanded="false"><span></span><span></span><span></span></button>
-        <nav class="main-nav" aria-label="Menu principal">
-            <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="createur.html">Patrick ASSO</a></li>
-                <li><a href="atelier.html">L'Atelier</a></li>
-                <li class="dropdown">
-                    <a href="collections.html" class="dropbtn">Collections</a>
-                    <div class="dropdown-content">
-                        <a href="collection-love-love.html">Love & Love</a>
-                        <a href="collection-asian.html">Asian</a>
-                        <a href="collection-sahel.html">Sahel</a>
-                        <a href="collection-urban.html">Urban</a>
-                        <a href="collection-special.html">Edition Spéciale</a>
-                    </div>
-                </li>
-                <li><a href="index.html#contact-middle">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="site-header"></div>
 
     <main id="main-content">
         <!-- RESTORED HERO SECTION (WITH CAROUSEL IMAGES) -->
@@ -211,10 +195,12 @@
                     </div>
                 </div>
                 <div>
-                    <form action="https://formspree.io/f/xzdkaaqk" method="POST" id="contact-form"
+                    <form action="https://formsubmit.co/nivaquine@yahoo.com" method="POST" id="contact-form"
                         class="contact-form m-0 max-w-full">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="Nouveau message - Patrick ASSO Couture">
                         <div class="trap-field" aria-hidden="true">
-                            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                            <input type="text" name="_honey" tabindex="-1" autocomplete="off">
                         </div>
                         <div class="form-group" id="contact-middle">
                             <label for="name">VOTRE NOM</label>
@@ -261,44 +247,10 @@
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img loading="lazy" src="images/logo/logo_asso.png" alt="Patrick ASSO" class="logo-small">
-                    <p>L'Atelier du luxe africain et mondial.</p>
-                    <div class="mt-2">
-                        <a href="https://www.facebook.com/profile.php?id=100050481160133" target="_blank"
-                            rel="noopener noreferrer" class="footer-social-link mr-15">FACEBOOK</a>
-                        <a href="https://wa.me/22507450423" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link mr-15">WHATSAPP</a>
-                        <a href="https://www.instagram.com/patrickasso" target="_blank" rel="noopener noreferrer"
-                            class="footer-social-link">INSTAGRAM</a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>RUBRIQUES</h4>
-                    <ul>
-                        <li><a href="createur.html">Patrick ASSO</a></li>
-                        <li><a href="atelier.html">L'Atelier</a></li>
-                        <li><a href="collections.html">Collections</a></li>
-                        <li><a href="index.html#contact-middle">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p>Cocody-Attoban,Abidjan, Côte d'Ivoire</p>
-                    <p>+(225) 07 07 45 04 23</p>
-                    <p>info@patrickasso.net</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 Patrick ASSO Couture | Tous droits réservés | By nivaQuine
-            </div>
-        </div>
-    </footer>
+    <div id="site-footer"></div>
 
     <!-- Scripts externes -->
+    <script src="components.js"></script>
     <script src="hero-carousel.js"></script>
     <script src="form-handler.js"></script>
     <script src="nav.js"></script>

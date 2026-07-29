@@ -1,0 +1,221 @@
+/* Specific Styles for Immersive Atelier Header */
+.atelier-hero {
+    position: relative;
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.atelier-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+    z-index: 1;
+}
+
+.atelier-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.atelier-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* Timeline & Styling Integration */
+.timeline-section {
+    padding: 8rem 0;
+    background-color: #050505;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vh;
+    height: 70vh;
+    background-image: url('images/logo/logo_watermark.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+.timeline-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rem;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    flex: 1;
+    padding: 0 5%;
+}
+
+.timeline-image {
+    flex: 1;
+    padding: 0 5%;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    border: 1px solid var(--color-gold);
+    box-shadow: 0 0 30px rgba(242, 202, 80, 0.25);
+    transition: transform 0.8s ease;
+}
+
+.timeline-image img:hover {
+    transform: scale(1.05);
+}
+
+.step-number {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-gold);
+    letter-spacing: 0.3rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-transform: uppercase;
+}
+
+.step-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+/* Forms & Consultation Branding */
+.consult-section {
+    background-color: var(--color-midnight);
+    padding: 10rem 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    background: #080808;
+    border: 1px solid rgba(242, 202, 80, 0.1);
+    padding: 4rem;
+}
+
+.form-info h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--color-gold);
+}
+
+.contact-form input, .contact-form textarea, .contact-form select {
+    width: 100%;
+    padding: 1.25rem;
+    background: #111;
+    border: 1px solid #222;
+    color: #fff;
+    font-family: var(--font-sans);
+    margin-bottom: 1.5rem;
+    transition: border 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.btn-submit {
+    background: var(--color-gold);
+    color: #000;
+    border: none;
+    padding: 1.5rem 3rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background: #fff;
+    transform: translateY(-5px);
+}
+
+@media (max-width: 992px) {
+    .form-grid { grid-template-columns: 1fr; padding: 2rem; }
+    .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; text-align: center; }
+    .timeline-image img { height: 400px; margin-top: 3rem; }
+}
+
+/* Atelier Showcase Section */
+.atelier-showcase {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.atelier-showcase-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.atelier-showcase-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+    z-index: 1;
+}
+
+.atelier-showcase-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 6rem 5%;
+}

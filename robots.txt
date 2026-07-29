@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /vercel.json
+Disallow: /scratch/
 
 Sitemap: https://patrick-asso-couture.vercel.app/sitemap.xml

@@ -24,8 +24,8 @@
 
 .intro-logo-container {
     opacity: 0;
-    transform: scale(0.6);
-    animation: introLogoAppear 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+    transform: scale(0.4);
+    animation: introLogoAppear 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
 }
 
 .intro-logo {
@@ -33,10 +33,11 @@
     max-width: 55vw;
     height: auto;
     mix-blend-mode: screen;
-    opacity: 0.7;
-    filter: grayscale(1) brightness(1.2) drop-shadow(0 0 20px rgba(242, 202, 80, 0.3));
-    animation: introLogoPulse 0.5s ease-in-out 1.5s 2,
-               introLogoToGold 1.5s ease-in-out 0.4s forwards;
+    filter: grayscale(1) brightness(1.5) saturate(0);
+    animation:
+        introLogoToGold 2s ease-in-out 0.6s forwards,
+        introLogoPulse 0.5s ease-in-out 1.8s 2,
+        introLogoExit 1s ease-in 3.4s forwards;
 }
 
 /* --- Keyframes --- */
@@ -44,34 +45,46 @@
 @keyframes introLogoAppear {
     0% {
         opacity: 0;
-        transform: scale(0.6);
+        transform: scale(0.4);
     }
-    50% {
+    60% {
         opacity: 1;
     }
     100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes introLogoToGold {
+    0% {
+        filter: grayscale(1) brightness(1.5) saturate(0) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+    50% {
+        filter: grayscale(0.3) brightness(1.2) saturate(0.6) drop-shadow(0 0 30px rgba(242, 202, 80, 0.5));
+    }
+    100% {
+        filter: grayscale(0) brightness(1) saturate(1) drop-shadow(0 0 40px rgba(242, 202, 80, 0.7));
     }
 }
 
 @keyframes introLogoPulse {
     0%, 100% {
         transform: scale(1);
-        filter: grayscale(1) brightness(1.2) drop-shadow(0 0 20px rgba(242, 202, 80, 0.3));
     }
     50% {
-        transform: scale(1.08);
-        filter: grayscale(0) brightness(1) drop-shadow(0 0 50px rgba(242, 202, 80, 0.7));
+        transform: scale(1.1);
     }
 }
 
-@keyframes introLogoToGold {
+@keyframes introLogoExit {
     0% {
-        filter: grayscale(1) brightness(1.2) drop-shadow(0 0 20px rgba(242, 202, 80, 0.3));
+        transform: scale(1);
+        opacity: 1;
     }
     100% {
-        filter: grayscale(0) brightness(1) drop-shadow(0 0 30px rgba(242, 202, 80, 0.5));
+        transform: scale(1.6);
+        opacity: 0;
     }
 }
 

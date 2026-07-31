@@ -19,7 +19,7 @@
     var overlay = document.getElementById('intro-overlay');
     if (!overlay) return;
 
-    var INTRO_MIN_DURATION = 4000;
+    var INTRO_MIN_DURATION = 3800;
     var startTime = Date.now();
 
     document.body.style.overflow = 'hidden';

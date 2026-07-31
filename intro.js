@@ -2,10 +2,19 @@
    INTRO CONTROLLER - "L'Éclat"
    Patrick ASSO Couture
    Preloads main page assets during intro
+   Only plays on first visit (sessionStorage)
    ======================================== */
 
 (function () {
     'use strict';
+
+    var SESSION_KEY = 'patrickasso_intro_seen';
+
+    if (sessionStorage.getItem(SESSION_KEY)) {
+        var overlay = document.getElementById('intro-overlay');
+        if (overlay) overlay.remove();
+        return;
+    }
 
     var overlay = document.getElementById('intro-overlay');
     if (!overlay) return;
@@ -58,6 +67,7 @@
     }
 
     function hideOverlay() {
+        sessionStorage.setItem(SESSION_KEY, '1');
         overlay.classList.add('hidden');
         document.body.style.overflow = '';
         setTimeout(function () {

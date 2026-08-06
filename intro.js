@@ -29,21 +29,29 @@
     chime.preload = 'auto';
 
     function playChime() {
+        chime.currentTime = 0;
         var playPromise = chime.play();
         if (playPromise !== undefined) {
             playPromise.catch(function () {
                 var unlock = function () {
+                    chime.currentTime = 0;
                     chime.play();
                     document.removeEventListener('click', unlock);
                     document.removeEventListener('touchstart', unlock);
+                    document.removeEventListener('keydown', unlock);
                 };
                 document.addEventListener('click', unlock);
                 document.addEventListener('touchstart', unlock);
+                document.addEventListener('keydown', unlock);
             });
         }
     }
 
-    playChime();
+    chime.addEventListener('canplaythrough', function onReady() {
+        chime.removeEventListener('canplaythrough', onReady);
+        playChime();
+    });
+    chime.load();
 
     var carouselImages = [
         'images/carrousel/urban_0.jpg',

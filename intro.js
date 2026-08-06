@@ -24,6 +24,27 @@
 
     document.body.style.overflow = 'hidden';
 
+    var chime = new Audio('sounds/crystal-chime.mp3');
+    chime.volume = 0.35;
+    chime.preload = 'auto';
+
+    function playChime() {
+        var playPromise = chime.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function () {
+                var unlock = function () {
+                    chime.play();
+                    document.removeEventListener('click', unlock);
+                    document.removeEventListener('touchstart', unlock);
+                };
+                document.addEventListener('click', unlock);
+                document.addEventListener('touchstart', unlock);
+            });
+        }
+    }
+
+    playChime();
+
     var carouselImages = [
         'images/carrousel/urban_0.jpg',
         'images/carrousel/urban_3.jpg',
@@ -70,6 +91,8 @@
         sessionStorage.setItem(SESSION_KEY, '1');
         overlay.classList.add('hidden');
         document.body.style.overflow = '';
+        chime.pause();
+        chime.currentTime = 0;
         setTimeout(function () {
             overlay.remove();
         }, 900);

@@ -145,6 +145,33 @@ h3 {
     width: auto;
 }
 
+.header-social {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    z-index: 2;
+}
+
+.header-social a {
+    color: var(--color-silver);
+    opacity: 0.6;
+    transition: opacity 0.3s, color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-social a:hover {
+    opacity: 1;
+    color: var(--color-gold);
+    transform: scale(1.15);
+}
+
+.header-social svg {
+    width: 18px;
+    height: 18px;
+}
+
 .main-nav ul {
     display: flex;
     list-style: none;
@@ -954,6 +981,18 @@ h3 {
 
     .main-header {
         padding: 0.71rem 4%;
+    }
+
+    .header-social {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 1rem;
+    }
+
+    .header-social svg {
+        width: 16px;
+        height: 16px;
     }
 
     .menu-toggle {

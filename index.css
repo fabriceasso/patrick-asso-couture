@@ -886,6 +886,7 @@ h3 {
     background: transparent;
     border: 2px solid var(--color-gold);
     cursor: pointer;
+    touch-action: manipulation;
     transition: all 0.4s ease;
 }
 

@@ -175,6 +175,15 @@
 }
 
 @media (max-width: 992px) {
+    .atelier-hero {
+        height: 50vh;
+    }
+    .timeline-section {
+        padding: 4rem 0;
+    }
+    .consult-section {
+        padding: 5rem 0;
+    }
     .form-grid { grid-template-columns: 1fr; padding: 2rem; }
     .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; text-align: center; }
     .timeline-image img { height: 400px; margin-top: 3rem; }

@@ -127,6 +127,12 @@
 }
 
 @media (max-width: 768px) {
+    .collections-hero {
+        height: 50vh;
+    }
+    .moodboard-section {
+        padding: 4rem 0;
+    }
     .moodboard-grid {
         grid-template-columns: 1fr 1fr;
     }

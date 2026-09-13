@@ -286,6 +286,21 @@
 }
 
 @media (max-width: 992px) {
+    .creator-hero-banner {
+        height: 50vh;
+    }
+    .bio-section {
+        padding: 4rem 0;
+    }
+    .massive-quote-section {
+        padding: 5rem 0;
+    }
+    .awards-section {
+        padding: 4rem 0;
+    }
+    .press-section {
+        padding: 4rem 0;
+    }
     .bio-grid {
         grid-template-columns: 1fr;
         gap: 4rem;

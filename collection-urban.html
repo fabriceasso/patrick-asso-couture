@@ -148,13 +148,34 @@
     <script src="gallery.js"></script>
     <script src="nav.js"></script>
     <script>
-    document.getElementById('loadMoreBtn').addEventListener('click', function() {
-        var hiddenItems = document.querySelectorAll('.gallery-item-hidden');
-        hiddenItems.forEach(function(item) {
-            item.classList.remove('gallery-item-hidden');
+    (function() {
+        var btn = document.getElementById('loadMoreBtn');
+        if (!btn) return;
+
+        function showMore() {
+            var firstRevealed = document.querySelector('.gallery-item-hidden');
+            var hiddenItems = document.querySelectorAll('.gallery-item-hidden');
+            hiddenItems.forEach(function(item) {
+                item.classList.remove('gallery-item-hidden');
+            });
+            btn.style.display = 'none';
+            if (firstRevealed) {
+                firstRevealed.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            showMore();
         });
-        this.style.display = 'none';
-    });
+
+        btn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            showMore();
+        });
+    })();
     </script>
 </body>
 
